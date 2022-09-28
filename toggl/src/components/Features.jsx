@@ -22,6 +22,7 @@ function Features() {
 
             filter: "brightness(90%)",
             // filterBackground: "brightness(20%)",
+            // opacity: "10000",
           }}
         >
           <h1
@@ -30,7 +31,10 @@ function Features() {
               fontWeight: "600",
               marginBottom: "2rem",
               lineHeight: "3rem",
-              filter: "brightness(100%)",
+
+              // filter: "brightness(100%)",
+              // opacity: "1",
+
               marginTop: "7rem",
             }}
           >
