@@ -24,6 +24,7 @@ export const getProjectAPI = () => async (dispatch) => {
 
 
 export const postProjectAPI = (data) => async (dispatch) => {
+  console.log(data, "postdata")
 
   dispatch({ type: ADD_PROJECT_SUCCESS });
   try {
@@ -32,6 +33,7 @@ export const postProjectAPI = (data) => async (dispatch) => {
         token: token
       }
     })
+
     dispatch({ type: ADD_PROJECT_SUCCESS, payload: res.data })
     dispatch(getProjectAPI())
 

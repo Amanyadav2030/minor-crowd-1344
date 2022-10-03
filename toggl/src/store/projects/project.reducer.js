@@ -33,10 +33,11 @@ export const projectReducer = (state = initialState, { type, payload }) => {
             }
         }
         case GET_PROJECT_SUCCESS: {
+            console.log(payload, "inside get project")
             return {
                 ...state,
                 getProjects: { ...state.getProjects, loading: false, error: false },
-                data: payload
+                data: [...payload]
             }
         }
         case ADD_PROJECT_LOADING: {
@@ -55,7 +56,7 @@ export const projectReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 addProject: { ...state.addProject, loading: false, error: false },
-                data: payload
+                data: [...state.data, payload]
             }
         }
         case REMOVE_PROJECT_LOADING: {

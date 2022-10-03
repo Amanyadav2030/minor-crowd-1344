@@ -3,7 +3,7 @@ import React from 'react'
 import brands from '../Images/brands.avif'
 const Trusted = () => {
     return (
-        <VStack align={'flex-start'}  p={'3rem 3.5rem'} spacing={'1rem'} >
+        <VStack align={'flex-start'}  alignItems={['center','self-start','self-start']} justifyContent={['center','left','left']} p={['2rem 1rem',null,'3rem 3.5rem']}  spacing={'1rem'} >
             {/* align-items: flex-start;
     padding: 1rem 3.5rem; */}
 

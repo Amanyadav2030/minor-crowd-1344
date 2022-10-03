@@ -24,7 +24,7 @@ const HeaderLogin = () => {
             <div style={{
                 width: '100%'
             }}>
-                <FormControl w='70%' isInvalid={isError.current} >
+                <FormControl w={['100%',null,'70%' ]}isInvalid={isError.current} >
                     <Input
                         _focus={{
                             border: '1px solid #FCE5D8',
@@ -74,11 +74,11 @@ const HeaderLogin = () => {
                 </FormControl>
             </div >
 
-            <HStack w='100%' justify={'space-between'} marginTop={'2.5rem !important'}>
-                <Button p='1.8rem 2.8rem' onClick={() => redirect('/signup')} fontWeight={'700'} _hover={{
+            <HStack w='100%' gap={['1rem',null,null]} flexDirection={['column',null,'row']} justify={'space-between'} marginTop={'2.5rem !important'}>
+                <Button p='1.8rem 2.8rem' w={['95%',null,null]} onClick={() => redirect('/signup')} fontWeight={'700'} _hover={{
                     background: '#7e6e85'
                 }} color='white' background={'#e57cd8'} borderRadius={'3rem'} >Sign up with email</Button>
-                <HStack>
+                <HStack >
                     <Text style={{
                         wordSpacing: '0.4rem'
                     }} fontWeight={'500'} color={'#FCE5D8'}>Or Signup with:</Text>

@@ -41,4 +41,6 @@ export const signupApi = (creds) => async (dispatch) => {
 };
 
 
-export const logoutAPI = () => ({ type: AUTH_LOGOUT });
+export const logoutAPI = () => async (dispatch) => {
+    dispatch({ type: AUTH_LOGOUT })
+}

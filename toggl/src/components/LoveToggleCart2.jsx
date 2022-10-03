@@ -5,8 +5,8 @@ import { BsFillCaretRightFill, BsStarFill } from 'react-icons/bs'
 const LoveToggleCart2 = ({ Img, Color, para, desc, about }) => {
     return (
 
-        <VStack justify={'space-between'} h={'31.5rem'} background={Color} w={'50%'} p={'2rem 0rem'} borderRadius={'1rem'}  >
-            <Text fontSize={'1.8rem'} w={'36rem'} textAlign={'start'} fontWeight={'600'}>
+        <VStack justify={'space-between'} h={'31.5rem'} background={Color} w={['100%', '100%', '50%', '50%']} p={'2rem 0rem'} borderRadius={'1rem'}  >
+            <Text fontSize={'1.8rem'} w={['85%', '80%', '36rem', '36rem']} textAlign={'start'} fontWeight={'600'}>
                 {para}
             </Text>
             <Image src={Img} w={'65%'} />

@@ -4,8 +4,8 @@ import correct from '../Images/correct.png';
 const OnBoarding = () => {
     return (
         <VStack w={'100%'} p={'2.3rem'} mt={'3rem !important'} textAlign={'start'} background={'#fce5d8'} borderRadius={'1rem'}>
-            <HStack gap={'3rem'}>
-                <VStack>
+            <HStack gap={'3rem'} flexDirection={['column',null,null]}>
+                <VStack >
                     <Text fontSize={'2.1rem'} fontWeight={'600'}>
                         Onboarding a large team? We'd love to show you around.
                     </Text>
@@ -20,7 +20,7 @@ const OnBoarding = () => {
                 </VStack>
             </HStack>
             <Divider h={'3px'} m={'1rem 0rem !important'} background={'#e57cd8'} />
-            <SimpleGrid w={'100%'} columns={[2, null, 4]} spacing='10' >
+            <SimpleGrid w={'100%'} columns={[1, null, 4]} spacing='10' >
                 <HStack>
                     <Image src={correct} w={'2.2rem'} h={'2.3rem'} />
                     <Text fontSize={'1.2rem'}>

@@ -19,7 +19,6 @@
   width: 0.8rem;
   height: 0.8rem;
   margin-top: 0.3rem;
-  margin-left: 30px;
 }
 .right p {
   font-weight: 600;
@@ -29,7 +28,7 @@
   color: #e57cd8;
   fill: #e57cd8;
 }
-.roundBtn {
+.roundBtn ,.roundBtn1{
   background: #fce5d8;
   border-radius: 3rem;
   padding: 0.85rem 2.5rem;
@@ -38,7 +37,7 @@
   cursor: pointer;
   transition: background 200ms ease-in-out;
 }
-.roundBtn:hover {
+.roundBtn:hover,.roundBtn1:hover {
   background: #563d66;
 }
 
@@ -54,4 +53,14 @@
 }
 .navbar_options_softwareDown {
   display: flex;
+}
+
+@media screen and (max-width:990px) and (min-width:200px) {
+
+  .nav {
+      display: none !important;
+  }
+  .roundBtn{
+    display: none;
+  }
 }

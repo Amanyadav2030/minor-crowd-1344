@@ -3,8 +3,8 @@ import { HStack, Button, Image, Text, VStack, Divider } from '@chakra-ui/react'
 import { BsFillCaretRightFill } from 'react-icons/bs'
 const ChartFeatures = ({ head, Img, para, editor }) => {
     return (
-        <HStack align={'self-start'} borderRadius={'1rem'} pb={'2rem'} color='black' >
-            <VStack gap={'2rem'} textAlign={'start'} align={'flex-start'} p={'1rem  0rem'} w={'40rem'} >
+        <HStack align={'self-start'} flexDirection={['column','column','row']} borderRadius={'1rem'} pb={'2rem'} color='black' >
+            <VStack gap={'2rem'} textAlign={'start'} align={'flex-start'} p={'1rem  0rem'} w={['100%','100%','40rem']} >
                 <Text w={'69%'} fontSize={'2rem'} fontWeight={'600'}>{head}</Text>
                 <Text color={'#e57cd8'} fontSize={'1.2rem'} ><a href="#">Learn how Toggle Track can help you <BsFillCaretRightFill style={{
                     display: 'inline',
@@ -24,7 +24,7 @@ const ChartFeatures = ({ head, Img, para, editor }) => {
                     </VStack>
                 </HStack>
             </VStack>
-            <VStack w={'60%'}>
+            <VStack w={['100%','80%','60%']}>
                 <Image src={Img} w={'94%'} />
             </VStack>
         </HStack >
