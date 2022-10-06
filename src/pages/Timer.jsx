@@ -93,9 +93,8 @@ const Timer = () => {
     const inc1 = useRef(1);
     const inc2 = useRef(1);
     dateRef.current = new Date();
-
     const showData = useSelector((store) => store.taskData.data);
-    console.log(showData)
+    // console.log(showData)
     const dispatch = useDispatch();
     // console.log(taskData)
 
@@ -135,7 +134,7 @@ const Timer = () => {
         "6:00 AM",
         "7:00 AM",
         "8:00 AM",
-        "8:00 AM",
+        "9:00 AM",
         "10:00 AM",
         "11:00 AM",
         "12:00 PM",
@@ -189,9 +188,6 @@ const Timer = () => {
             date7: (new Date(dateRef.current.setDate(dateRef.current.getDate() + 1))).toString().split(' ')[2],
         });
     }
-
-
-
     const nextWeek = () => {
         inc1.current = -1;
         setWeekDate({
@@ -211,7 +207,7 @@ const Timer = () => {
 
     const finalRef = React.useRef(null);
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         dispatch(postTaskAPI({
             time: checkT,
             day: checkD,
@@ -235,9 +231,7 @@ const Timer = () => {
         // console.log(showData, "data")
     }, [checkD, checkT, weekDate]);
     return (
-        /* width: 90%; */
-        // width: 99.5%;
-        // padding-left: 11rem;
+
         <HStack align={'flex-start'} pl={'11rem !important'} border={'1px solid transparent'} w={'99.5% !important'}>
             <Sidebar />
             <VStack w={'100%'} background={'white !important'}>

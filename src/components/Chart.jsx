@@ -6,8 +6,8 @@ const Chart = ({ Img, head, para1, para2 }) => {
 
 
     return (
-        <HStack align={'flex-start'} borderRadius={'1rem'} background={'#412a4c'} pt={'2rem'} pb={'2rem'} color='white'>
-            <VStack textAlign={'start'} align={'flex-start'} p={'3rem 2.5rem'} w={'45rem'} >
+        <HStack align={'flex-start'}  flexDirection={['column','column','row']} borderRadius={'1rem'} background={'#412a4c'} pt={['0rem','0rem','2rem']} pb={'2rem'} color='white'>
+            <VStack textAlign={'start'} align={'flex-start'} p={'3rem 2.5rem'} w={['100%','100%','45rem']} >
                 <Text fontSize={'2.4rem'} fontWeight={'600'}>{head}</Text>
                 <Text position={'relative'} fontSize={'1.2rem'} w={'89%'}><BsCheckLg style={{
                     display: 'inline',
@@ -26,8 +26,8 @@ const Chart = ({ Img, head, para1, para2 }) => {
                     }} /></a></Text>
                 </HStack>
             </VStack>
-            <VStack w={'66%'} mt={'1.8rem !important'}>
-                <Image src={Img} w={'94%'} />
+            <VStack w={['100%','100%','66%']} mt={'1.8rem !important'}>
+                <Image src={Img} w={['100%','100%','94%']} />
             </VStack>
         </HStack >
     )

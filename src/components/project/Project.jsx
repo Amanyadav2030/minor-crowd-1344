@@ -44,8 +44,7 @@ const Project = () => {
 
   const dispatch = useDispatch();
   const projectData = useSelector((project) => project.projectData.data);
-
-  console.log(projectData)
+  // console.log(projectData)
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -69,7 +68,6 @@ const Project = () => {
 
 
   const handleSubmit = () => {
-    setUpdate((prev) => prev + 1)
     dispatch(postProjectAPI(data))
     onClose();
   };
@@ -213,19 +211,19 @@ const Project = () => {
           </div>
         </div>
         <div>
-          {projectData.length > 0 &&
+          {projectData.length >= 0 &&
             projectData?.map((item) => (
               <HStack justify={'start'} gap="7%" className={style.map} border={'1px solid'}>
-                <HStack w={"10rem"} pl="3rem" style={{ display: "flex", gap: "5px" }} key={item.id}>
+                <HStack w={"10rem"} pl="3rem" style={{ display: "flex", gap: "5px" }} key={item?.id}>
                   {" "}
                   <FaFirstOrderAlt
                     style={{ marginTop: "4px", marginLeft: "-20%" }}
                   />{" "}
-                  <Text> {item.projectName}{" "}</Text>
+                  <Text> {item?.projectName}{" "}</Text>
                 </HStack>
-                <HStack textAlign={'start'} width={'9rem'} ><Text>{item.client}</Text></HStack>
-                <HStack textAlign={'start'} width={'12rem'} ><Text>{item.created_at.split("T")[0]}</Text></HStack>
-                <HStack textAlign={'center'} width={'10rem'} ><Text> 0</Text> </HStack>
+                <HStack textAlign={'start'} width={'9rem'} ><Text>{item?.client}</Text></HStack>
+                <HStack textAlign={'start'} width={'12rem'} ><Text>{item === undefined ? "" : item.created_at.split("T")[0]}</Text></HStack>
+                <HStack textAlign={'center'} width={'10rem'} ><Text>✔</Text> </HStack>
 
                 <Center>
                   <AiFillDelete onClick={() => handleDelete(item._id)}

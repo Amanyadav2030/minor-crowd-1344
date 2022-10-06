@@ -1,7 +1,7 @@
 // get cart items
 export const GET_TASK_LOADING = "get/task/loading";
 export const GET_TASK_SUCCESS = "get/task/success";
-export const GET_TASK_ERROR = "get/task/error";
+export const GET_TASK_ERROR = "get/task/error"; 
 
 // add item to cart
 export const ADD_TASK_LOADING = "add/task/loading";

@@ -17,7 +17,7 @@ const Solo = () => {
     <div className={style.sw_main_div}>
       {/* 1st pic div */}
 
-      <SimpleGrid columns={2} spacing={0} backgroundColor=" rgb(44,19,56)" >
+      <SimpleGrid columns={[1, 2]} spacing={0} backgroundColor=" rgb(44,19,56)" >
         <Box margin={"10"}
           fontFamily="sans-serif"
           fontWeight="600"

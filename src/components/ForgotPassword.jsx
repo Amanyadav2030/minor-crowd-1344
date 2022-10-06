@@ -6,7 +6,7 @@ import Styles from "./Video.module.css"
 const ForgotPassword = () => {
 
     const [email, setEmail] = useState("")
-    const { forgotPassword, logoutUser, user, error } = useUserContext()
+    const { forgotPassword } = useUserContext()
 
 
     const vidRef = useRef(null);
@@ -46,7 +46,7 @@ const ForgotPassword = () => {
                         <Button w="90%" h="48px" type="submit" bg="#E57CD8" borderRadius="3xl">
                             Reset Password
                         </Button>
-                        <Button onClick={logoutUser}>Logout</Button>
+
                     </form>
                 </Box>
             </Box>

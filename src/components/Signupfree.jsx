@@ -6,36 +6,38 @@ import { FcGoogle } from "react-icons/fc";
 import Rotate from './Rotate';
 import { useUserContext } from '../Context/userContext';
 import { useNavigate } from 'react-router-dom';
+import { AuthErrorCodes } from 'firebase/auth';
 const Signupfree = () => {
   const { signInWithGoogle } = useUserContext();
   const redirect = useNavigate();
   return (
     <VStack
-      style={{ color: "snow", padding: "3rem", backgroundColor: "#422a4c" }}
+    p={['0rem','0rem','3rem']}
+      style={{ color: "snow", backgroundColor: "#422a4c" }}
     >
-      <Text mt={'6rem !important'} fontSize={'2.6rem'} fontWeight={'600'} w={'66%'} >
+      <Text mt={'6rem !important'} fontSize={'2.6rem'} display={['none','none',null]} fontWeight={'600'} w={'66%'} >
         Switch to the time tracking tool <Rotate word={'70,000+'} /> teams across the world swear by
       </Text>
 
       <SimpleGrid
-        column={'2'}
+        gridTemplateColumns={['1fr','1fr','1fr 1fr']}
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
           padding: "2rem 0rem",
         }}
       >
+
+
         <VStack
-          align={'flex-start'}
-          ml={'3.5rem'}
-          w={'105%'}
+          align={['center','center','flex-start']}
+          ml={['0rem','0rem','3.5rem']}
+          w={['100%','100%','105%']}
           fontSize="1.2rem"
           p={'3rem 4rem !important'}
+          h={['auto','auto','550px']}
           style={{
             backgroundColor: "#2c1438",
-            color: "#fce4d8",
-
-            height: "550px",
+            color: "#fce4d8",            
             position: "relative",
           }}
         >
@@ -48,16 +50,17 @@ const Signupfree = () => {
           >
             Sign up for free
           </Text>
-          <Text w={'92%'} fontSize={'1.1rem'} textAlign={'start'}>
+          <Text w={'92%'} fontSize={'1.1rem'} textAlign={['center','center','start']}>
             All plans come with a free, 30-day trial of Toggl Track
             Premium—no credit card required. Upgrade at the end of the
             trial or continue using Track for free.
           </Text>
           <VStack w={'100%'}>
-            <HStack
+
+            <SimpleGrid
+            gridTemplateColumns={['1fr','1fr','1fr 1fr']}
+            w={['82%','83%',null]}
               style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
                 alignItems: "center",
                 gap: "1rem",
               }}
@@ -103,7 +106,7 @@ const Signupfree = () => {
                   Sign up via Apple
                 </span>
               </Button>
-            </HStack>
+            </SimpleGrid>
             <HStack
               w={'89%'}
               style={{
@@ -134,7 +137,7 @@ const Signupfree = () => {
               </Button>
             </HStack>
           </VStack>
-          <Text fontSize={'1rem'} textAlign={'start'} width={'95%'}>
+          <Text fontSize={'1rem'} textAlign={['center','center','start']}  width={'95%'}>
             By signing up, you agree to our{" "}
             <a href="#"
               style={{ borderBottom: '0.8px solid #e57cd8' }}
@@ -156,15 +159,17 @@ const Signupfree = () => {
             marketing communication from Toggl Track. You can opt out
             anytime.
           </Text>
-        </VStack >
+        // </VStack >
 
         <VStack
           p={'3rem'}
-          pl={'8rem'}
+          pl={['0rem','0rem','8rem']}
+          alignItems={['center','center',null]}
+          justifyContent={['center','center',null]}
           fontSize={'1.2rem'}
-          mt={'17rem'}
-          width={'95%'}
-          textAlign={'start'}
+          mt={['0rem','0rem','17rem']}
+          width={['100%','100%','95%']}
+          textAlign={['center','center','start']}
           align={'flex-start'}
           style={{
             backgroundColor: "#fce4d8",
@@ -173,18 +178,18 @@ const Signupfree = () => {
         >
           <Text
             fontSize={'2rem'}
-            w={'80%'}
+            w={['100%','100%','80%']}
             style={{
               fontWeight: "600",
-              marginBottom: "2rem",
             }}
+            mb={['0.5rem','0.5rem','2rem']}
           >
             Prefer a product demo instead?
           </Text>
-          <Text mb={'1.5rem !important'} w={'90%'}>
+          <Text mb={'1.5rem !important'} w={['100%','100%','90%']}>
             Teams of 10+ are eligible for a personalized demo to see how Toggl Track can meet your time tracking goals
           </Text>
-          <Button p='1.8rem 2.5rem' fontSize={'1.2rem'} _hover={{
+          <Button  p='1.8rem 2.5rem' fontSize={'1.2rem'} _hover={{
             background: '#7e6e85'
           }} color='white' background={'#e57cd8'} borderRadius={'3rem'} >Book a demo</Button>
         </VStack>
