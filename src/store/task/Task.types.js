@@ -11,4 +11,4 @@ export const ADD_TASK_ERROR = "add/task/error";
 // update cart items
 export const DELETE_TASK_LOADING = "delete/task/loading";
 export const DELETE_TASK_SUCCESS = "delete/task/success";
-export const DELETE_TASK_ERROR = "delete/task/error";
+export const DELETE_TASK_ERROR = "delete/task/error"

@@ -170,7 +170,7 @@ const Navbar = () => {
                 if(token){
                   toggleLogin();
                 }else{
-                  redirect('/login');
+                  redirect('/login')
                 }
             }}>{token ? "Logout" : "Login"}</Text>
           </Text>

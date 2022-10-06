@@ -21,7 +21,7 @@ export const authReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 loading: false,
                 error: true,
-            }
+            } 
         }
 
         case AUTH_LOGIN_SUCCESS: {

@@ -9,7 +9,7 @@ export const getProjectAPI = () => async (dispatch) => {
 
   dispatch({ type: GET_PROJECT_LOADING });
   try {
-    const res = await axios.get(`${process.env.REACT_APP_BACKEND_API_KEY}/projects`, {
+    const res = await axios.get(`https://team-toggl.herokuapp.com/projects`, {
       headers: {
         token: token
       }
@@ -28,7 +28,7 @@ export const postProjectAPI = (data) => async (dispatch) => {
 
   dispatch({ type: ADD_PROJECT_LOADING});
   try {
-    const res = await axios.post(`${process.env.REACT_APP_BACKEND_API_KEY}/projects`, data, {
+    const res = await axios.post(`https://team-toggl.herokuapp.com/projects`, data, {
       headers: {
         token: token
       }
@@ -47,7 +47,7 @@ export const postProjectAPI = (data) => async (dispatch) => {
 export const removeProjectAPI = (id) => async (dispatch) => {
   dispatch({ type: REMOVE_PROJECT_LOADING });
   try {
-    let res = await axios.delete(`${process.env.REACT_APP_BACKEND_API_KEY}/projects/${id}`, {
+    let res = await axios.delete(`https://team-toggl.herokuapp.com/projects/${id}`, {
       headers: {
         token: token
       }

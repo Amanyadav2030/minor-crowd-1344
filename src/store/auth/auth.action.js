@@ -10,7 +10,8 @@ export const loginApi = (creds) => async (dispatch) => {
 
     dispatch({ type: AUTH_LOGIN_LOADING });
     try {
-        let response = await axios.post(`${process.env.REACT_APP_BACKEND_API_KEY}/users/login`, creds);
+        let response = await axios.post(`https://team-toggl.herokuapp.com/users/login`, creds);
+        // let response = await axios.post(`${process.env.REACT_APP_BACKEND_API_KEY}/users/login`, creds);
         dispatch({
             type: AUTH_LOGIN_SUCCESS,
             payload: response.data.token,
@@ -26,7 +27,8 @@ export const signupApi = (creds) => async (dispatch) => {
     console.log(creds)
     dispatch({ type: AUTH_SIGNUP_LOADING });
     try {
-        let response = await axios.post(`${process.env.REACT_APP_BACKEND_API_KEY}/users/signup`, creds);
+        let response = await axios.post(`https://team-toggl.herokuapp.com/users/signup`, creds);
+        // let response = await axios.post(`${process.env.REACT_APP_BACKEND_API_KEY}/users/signup`, creds);
 
         dispatch({
             type: AUTH_SIGNUP_SUCCESS,

@@ -83,5 +83,5 @@ export const TaskReducer = (state = initialState, { type, payload }) => {
             return state
         }
     }
-}
+};
 

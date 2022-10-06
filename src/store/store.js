@@ -9,4 +9,4 @@ const rootReducer = combineReducers({
     auth: authReducer,
     taskData: TaskReducer
 });
-export const store = legacy_createStore(rootReducer, applyMiddleware(thunk))
+export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));

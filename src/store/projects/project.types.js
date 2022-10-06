@@ -4,7 +4,7 @@ export const GET_PROJECT_SUCCESS = "get/project/success"
 
 export const ADD_PROJECT_LOADING = "projects/add/loading";
 export const ADD_PROJECT_SUCCESS = "projects/add/success";
-export const ADD_PROJECT_ERROR = "projects/add/error";
+export const ADD_PROJECT_ERROR = "projects/add/error"
 
 
 

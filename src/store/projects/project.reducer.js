@@ -83,4 +83,4 @@ export const projectReducer = (state = initialState, { type, payload }) => {
             return state
         }
     }
-}
+};
