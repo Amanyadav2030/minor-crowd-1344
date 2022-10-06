@@ -1,5 +1,5 @@
 const express = require("express")
-const Authmiddleware = require("../../middilewares/authentication");
+const Authmiddleware = require("../../middleware/authentication");
 const Projects = require("./Project.model")
 
 const app = express.Router()
@@ -19,15 +19,19 @@ app.get("/", async (req, res) => {
 app.post("/", async (req, res) => {
     const [id, email, password] = req.headers.token.split(":");
     console.log(req.headers.token)
-
-    let project = await Projects.find({ projectName: req.body.projectName, userId: id });
-
-    if (project.length === 0) {
-        let newProject = await Projects.create({ ...req.body, userId: id })
-        res.send(newProject)
-    } else {
-        res.send("Project needs update")
+    try{
+        let project = await Projects.find({ projectName: req.body.projectName, userId: id });
+        if (project.length === 0) {
+            let newProject = await Projects.create({ ...req.body, userId: id })
+            res.send(newProject)
+        } else {
+            res.send("Project needs update")
+        }
+    }catch (er) {
+        console.log(er.message)
+        res.status(500).send(er.message)
     }
+   
 
 })
 

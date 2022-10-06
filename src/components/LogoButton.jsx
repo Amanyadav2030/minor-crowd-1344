@@ -5,7 +5,7 @@ import { useUserContext } from '../Context/userContext'
 const LogoButton = ({ logo, title }) => {
     const { user, signInWithGoogle } = useUserContext()
 
-    return (
+    return ( 
 
         <Flex align="center" bg="white" color="black" p="2% 3%" borderRadius="3xl" onClick={signInWithGoogle} _hover={{ background: "#ffebd7" }}>
             <Image w={["20px", "25px"]} src={logo} />

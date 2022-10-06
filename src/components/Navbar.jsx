@@ -1,16 +1,42 @@
-import { Box, Divider, HStack, Text } from "@chakra-ui/react"; 
-import React, { useState } from "react";
+import { Box, Button, Divider, HStack, Text } from "@chakra-ui/react";
+import React, { useRef, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
+import { BsFillCaretDownFill, BsFillCaretRightFill, BsFillCaretUpFill } from "react-icons/bs";
 import styles from "./Navbar.module.css";
 import CareerDrop from "./Navbar/CareerDrop";
 import ProductDrop from "./Navbar/ProductDrop";
 import WhyDrop from "./Navbar/WhyDrop";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import {
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  VStack,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { useUserContext } from "../Context/userContext";
+import { logoutAPI } from "../store/auth/auth.action";
 const Navbar = () => {
+  const btnRef = useRef();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [prodcutdropdown, setProductdropDown] = useState(false);
   const [whydropDown, setWhydrop] = useState(false);
   const [careerdropDown, setCareerdrop] = useState(false);
+  const redirect = useNavigate();
+  //Logout logic
+  const { logoutUser } = useUserContext();
+  const token = localStorage.getItem("token") || "";
+  const dispatch = useDispatch();
+
+
+  const toggleLogin = () => {
+    dispatch(logoutAPI())
+    logoutUser()
+  }
 
   const handlemouseHoverProd = () => {
     setWhydrop(false);
@@ -90,14 +116,14 @@ const Navbar = () => {
             ></path>
           </svg>
         </Link>
-        <Box onClick={handlemouseHoverProd}>
+        <Box className={styles.nav} onClick={handlemouseHoverProd}>
           <Text>Product</Text>
           {!prodcutdropdown ? <BsFillCaretDownFill /> : <BsFillCaretUpFill />}
         </Box>
-        <Box>
+        <Box className={styles.nav}>
           <Text><Link to={'/price'}> Pricing</Link></Text>
         </Box>
-        <Box >
+        <Box className={styles.nav} >
           <div
             onClick={handlemouseHoverWhy}
             className={styles.navbar_options_softwareDown}
@@ -107,7 +133,7 @@ const Navbar = () => {
 
           {!whydropDown ? <BsFillCaretDownFill /> : <BsFillCaretUpFill />}
         </Box>
-        <Box>
+        <Box className={styles.nav}>
           <div
             onClick={handlemouseHoverCareer}
             className={styles.navbar_options_softwareDown}
@@ -119,39 +145,94 @@ const Navbar = () => {
         </Box>
       </HStack>
       <HStack spacing={"1.8rem"} className={styles.right} display="flex">
-        <Box display={['block', 'block', 'block', 'none !important']} >
+        <Box display={['block', 'block', 'block', 'none !important']} onClick={onOpen} >
           <FaBars style={{
             width: '2rem',
             cursor: 'pointer',
             height: '1.6rem'
           }} />
         </Box>
-        <Box>
+        <Box className={styles.nav}>
           <Text>
             <a href="#">Book a demo</a>
           </Text>
         </Box>
         <Divider
-
+          className={styles.nav}
           orientation="vertical"
           height="32px"
           border={"1.5px solid white"}
           background={"white"}
         />
-        <Box>
+        <Box className={styles.nav}>
           <Text>
-            <Link to={'/login'}>Log in</Link>
+            <Text cursor={'pointer'} variant="outline" onClick={()=>{
+                if(token){
+                  toggleLogin();
+                }else{
+                  redirect('/login');
+                }
+            }}>{token ? "Logout" : "Login"}</Text>
           </Text>
         </Box>
         <Box className={styles.roundBtn}>
-          <a href="#">Try for free</a>
+          <Link to={"/timer"}>Try for free</Link>
         </Box>
 
       </HStack>
       {prodcutdropdown && <ProductDrop />}
       {whydropDown && <WhyDrop />}
       {careerdropDown && <CareerDrop />}
+
+      <Drawer
+
+
+        size={['full']}
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader></DrawerHeader>
+          <DrawerBody background={'#fce5d8s !important'}>
+            <VStack align={'flex-start'}>
+              <Text fontWeight={'600'}><a href="#">Product<BsFillCaretRightFill style={{
+                display: 'inline',
+                width: '11px',
+                height: '11px',
+              }} /></a></Text>
+              <Text fontWeight={'600'}><a href="#">Pricing <BsFillCaretRightFill style={{
+                display: 'inline',
+                width: '11px',
+                height: '11px',
+              }} /></a></Text>
+              <Text fontWeight={'600'}><a href="#">Why Track? <BsFillCaretRightFill style={{
+                display: 'inline',
+                width: '11px',
+                height: '11px',
+              }} /></a></Text>
+              <Text fontWeight={'600'}><a href="#">Career <BsFillCaretRightFill style={{
+                display: 'inline',
+                width: '11px',
+                height: '11px',
+              }} /></a></Text>
+
+            </VStack>
+            <HStack justifyContent={'center'} mt={'4rem'}>
+
+              <Box className={styles.roundBtn1}>
+                <a href="#">Try for free</a>
+              </Box>
+            </HStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </HStack>
+
+
   );
 };
 

@@ -5,9 +5,9 @@ const taskSchema = new mongoose.Schema({
     day: { type: String, required: true },
     time: { type: String, required: true },
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "tguser" },
-    projectId: { type: mongoose.Schema.Types.ObjectId, ref: "tgproject" }
+    // projectId: { type: mongoose.Schema.Types.ObjectId, ref: "tgproject" }
 },
-    {
+    { 
         versionKey: false,
         timestamps: {
             createdAt: true,

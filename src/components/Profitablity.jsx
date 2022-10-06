@@ -54,13 +54,17 @@ const Profitablity = () => {
         console.log(match == d.button);
     };
     return (
-        <VStack align={'center'} pb={'5rem'} background={'#fef6f3'} w={'100%'} pt={'6rem'} pl={'3.5rem'} pr={'3.5rem'}>
-            <Text fontSize={'2.8rem'} fontWeight={'600'} w={'80%'} >
+        <VStack align={'center'} pb={'5rem'} background={'#fef6f3'} w={'100%'} pt={'6rem'} pl={['0rem','0rem','3.5rem']} pr={['0rem','0rem','3.5rem']}>
+            <Text fontSize={'2.8rem'} fontWeight={'600'} w={['100%',null,'80%']} >
                 Time tracking for all your productivity and profitability needs
             </Text>
-            <HStack gap={'0.5rem'} mt={'3.5rem !important'} mb={'3.5rem !important'}>
+            {/* width: 100%;
+    gap: 5rem;
+    overflow: hidden;
+    overflow-x: scroll; */}
+            <HStack gap={['1rem','1rem','0.5rem']} overflow={'hidden'} overflowX={'scroll'}  w={['100%','100%',null]} mt={'3.5rem !important'} mb={'3.5rem !important'}>
                 {profitability.map((el) => {
-                    return <Button p='1.6rem 1.9rem' onClick={() => handleClick(el)}
+                    return <Button p={['1.4rem 7rem','1.4rem 7rem','1.6rem 1.9rem']}onClick={() => handleClick(el)}
                         style={match == el.button ? {
                             background: '#2c1338',
                             color: '#ffebbd',

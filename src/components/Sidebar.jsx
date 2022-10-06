@@ -25,8 +25,8 @@ export default function Sidebar() {
         // z-index: 10;
         <Box position={'fixed !important'} top={'0 !important'} left={'0 !important'} zIndex={'10 !important'}>
             <Box id={style.sidebar_main_div}>
-                <Box id={style.sidebarLogo}>
-                    <Image src="https://toggl.com/blog/wp-content/uploads/2020/09/toggl-track_logotype_horizontal_pink_rgb-e1599116263835.png" alt="logo" />
+                <Box id={style.sidebarLogo} >
+                    <Image onClick={() => redirect('/')} src="https://toggl.com/blog/wp-content/uploads/2020/09/toggl-track_logotype_horizontal_pink_rgb-e1599116263835.png" alt="logo" />
                     <Box w="50px" display="flex" justifyContent="center">
                         <FaBell height="42px" color='white' />
                     </Box>

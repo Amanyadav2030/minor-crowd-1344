@@ -28,10 +28,10 @@ const Companies = () => {
     return (
         <VStack background={'#fdf1ec'} w={'100%'} p={'0.5rem 3.5rem'} pb={'5rem'}>
 
-            <Text mt={'6rem !important'}  fontSize={'2.6rem'} color='#2c1338' fontWeight={'600'} w={'66%'} >
+            <Text mt={['2rem',null,'6rem !important']}  fontSize={['1.5rem',null,'2.6rem']} color='#2c1338' fontWeight={'600'} w={['100%',null,'66%']} >
                 Companies that use Toggl Track see <Rotate word={'results'} Color={'#2c1338'} /> in profit and productivity
             </Text>
-            <SimpleGrid columns={[2, null, 3]} spacing='20' mt={'3rem'}>
+            <SimpleGrid columns={[1, 2, 2,3]} spacing={['5',null,'20']} mt={'3rem'}>
                 {
                     companies.map((el)=> <CompaniesBox Img={el.Img} desc={el.desc} head={el.head} />)
                 }      

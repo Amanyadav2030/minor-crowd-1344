@@ -1,7 +1,5 @@
 const express = require("express");
 const User = require("./User.model");
-const Authmiddleware = require("../../middilewares/authentication")
-
 const app = express.Router();
 
 
@@ -39,7 +37,6 @@ app.post("/login", async (req, res) => {
 
     try {
         let user = await User.findOne({ email: req.body.email, password: req.body.password })
-
         if (!user) {
             return res.status(400).send("Authentication failed")
         }

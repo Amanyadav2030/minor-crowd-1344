@@ -1,7 +1,7 @@
 
 import { ADD_TASK_ERROR, ADD_TASK_LOADING, ADD_TASK_SUCCESS, DELETE_TASK_ERROR, DELETE_TASK_LOADING, DELETE_TASK_SUCCESS, GET_TASK_ERROR, GET_TASK_LOADING, GET_TASK_SUCCESS } from "./Task.types";
 
-const initialState = {
+const initialState = { 
     getTasks: {
         loading: false,
         error: false,
@@ -33,7 +33,7 @@ export const TaskReducer = (state = initialState, { type, payload }) => {
                 getTasks: { ...state.getTasks, loading: false, error: true }
             }
         }
-        case GET_TASK_SUCCESS: {
+        case GET_TASK_SUCCESS: { 
             return {
                 ...state,
                 getTasks: { ...state.getTasks, loading: false, error: false },

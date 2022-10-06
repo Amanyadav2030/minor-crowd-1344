@@ -2,31 +2,31 @@ const express = require("express")
 const Task = require("./Task.model");
 const Projects = require("../Projects/Project.model")
 const User = require("../User/User.model")
-const Authmiddleware = require("../../middilewares/authentication")
+const Authmiddleware = require("../../middleware/authentication")
 
 let app = express.Router();
 app.use(Authmiddleware)
-
+ 
 app.get("/", async (req, res) => {
-    let { projectid } = req.headers
+    // let { userId } = req.headers
+    const [id, email, password] = req.headers.token.split(":");
     try {
-        let task = await Task.find({ projectId: projectid })
+        let task = await Task.find({ userId: id })
         res.send(task)
     } catch (er) {
         res.status(500).send(er.message)
     }
-})
-
+}) 
+ 
 app.post("/", async (req, res) => {
     const [id, email, password] = req.headers.token.split(":");
-    let { projectid } = req.headers
 
     //    first find the task if task is already exist in that project then you should not add that task there
     try {
-        let task = await Task.find({ projectId: projectid, taskName: req.body.taskName })
+        let task = await Task.find({ taskName: req.body.taskName })
 
         if (task) {
-            const taskName = await Task.create({ ...req.body, userId: id, projectId: projectid })
+            const taskName = await Task.create({ ...req.body, userId: id })
             res.send(taskName)
         } else {
             res.send("Task is already added in this Project")

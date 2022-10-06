@@ -23,9 +23,9 @@ export const authReducer = (state = initialState, { type, payload }) => {
                 error: true,
             }
         }
-        //Bhai run karo yar
 
         case AUTH_LOGIN_SUCCESS: {
+            // window.alert("saved",payload)
             localStorage.setItem("token", payload)
             console.log(payload, "Success");
             return {
@@ -36,12 +36,12 @@ export const authReducer = (state = initialState, { type, payload }) => {
             }
         }
         case AUTH_LOGOUT: {
-
+            let tok = localStorage.removeItem("token")
             return {
                 ...state,
                 loading: false,
                 error: false,
-                token: "",
+                token: tok,
             }
         }
         case AUTH_SIGNUP_LOADING: {

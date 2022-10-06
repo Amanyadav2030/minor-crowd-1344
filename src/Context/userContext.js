@@ -71,6 +71,7 @@ export const UserContextProvider = ({ children }) => {
 
         })
             .catch((er) => {
+                console.log(email,password)
                 setError(er.message)
                 toast({
                     title: 'Error',
@@ -100,14 +101,14 @@ export const UserContextProvider = ({ children }) => {
                     isClosable: true,
                     position: 'top'
                 })
-
                 dispatch(loginApi({ email, password }))
-
                 setTimeout(() => {
-                    navigate("/timer")
+                    // window.location.href="http://localhost:3000/timer";
+                    window.location.href="https://toggl-time-tracking.vercel.app/timer";
                 }, 1000)
             })
             .catch((er) => {
+                
                 setError(er.message)
                 toast({
                     title: 'Error',
@@ -188,7 +189,7 @@ export const UserContextProvider = ({ children }) => {
 
     // ############### Signin with google ########################
 
-    const signInWithGoogle = () => {
+    const signInWithGoogle = () => { 
         SetLoading(true);
         signInWithPopup(auth, new GoogleAuthProvider)
             .then((res) => {
@@ -217,7 +218,8 @@ export const UserContextProvider = ({ children }) => {
                 })
             })
             .finally(() => SetLoading(false))
-    }
+    };
+
 
     const contextValue = {
         user,
