@@ -53,7 +53,7 @@ app.patch("/:id", async (req, res) => {
         let updatedTask = await Task.findByIdAndUpdate(id, { $set: { taskName: req.body.taskName } }, { new: true });
         res.send(updatedTask)
     } catch (er) {
-        res.status(404).send(er.message)
+        res.status(404).send(er.message);
     }
 })
 

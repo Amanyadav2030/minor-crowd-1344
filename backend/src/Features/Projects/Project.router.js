@@ -9,7 +9,7 @@ app.use(Authmiddleware)
 app.get("/", async (req, res) => {
     const [id, email, password] = req.headers.token.split(":");
     try {
-        let project = await Projects.find({ userId: id })
+        let project = await Projects.find({ userId: id });
         res.send(project)
     } catch (er) {
         res.status(401).send(er.message)

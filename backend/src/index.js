@@ -7,7 +7,7 @@ const projectRouter = require("./Features/Projects/Project.router")
 const taskRouter = require("./Features/Task/Task.router")
 const PORT = process.env.PORT || 8080
 const app = express()
-app.use(express.json())
+app.use(express.json());
 app.use(cors())
 app.use("/users", userRouter)
 app.use("/projects", projectRouter)

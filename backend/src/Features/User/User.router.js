@@ -44,7 +44,7 @@ app.post("/login", async (req, res) => {
 
 
     } catch (er) {
-        res.status(500).send(er.message)
+        res.status(500).send(er.message);
     }
 })
 
