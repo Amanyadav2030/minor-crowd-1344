@@ -62,7 +62,7 @@ const Profitablity = () => {
     gap: 5rem;
     overflow: hidden;
     overflow-x: scroll; */}
-            <HStack gap={['1rem','1rem','0.5rem']} overflow={'hidden'} overflowX={'scroll'}  w={['100%','100%',null]} mt={'3.5rem !important'} mb={'3.5rem !important'}>
+            <HStack gap={['1rem','1rem','0.5rem']} overflow={'hidden'} overflowX={'auto'}  w={['100%','100%',null]} mt={'3.5rem !important'} mb={'3.5rem !important'}>
                 {profitability.map((el) => {
                     return <Button p={['1.4rem 7rem','1.4rem 7rem','1.6rem 1.9rem']}onClick={() => handleClick(el)}
                         style={match == el.button ? {
