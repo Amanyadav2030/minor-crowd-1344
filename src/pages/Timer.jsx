@@ -418,13 +418,14 @@ const Timer = () => {
                     <SimpleGrid m={'0rem'} mt={'-1px'} w={'94%'} columns={[4, null, 7]} >
                         {
                             Scheduletime.map((time, t) => {
-                                return daysGreed.map((day, d) => {
+                                return Object.entries(weekDate).map((day, d) => {
                                     return (
                                         <Box _hover={{
                                             background: 'rgb(229, 124, 216) !important'
                                         }} display={'flex'} alignItems={'center'}
 
                                             justifyContent={'center'} h={'3.7rem'} onClick={() => {
+                                                day = day[1];
                                                 handleEvent({ time, day });
                                                 onOpen();
                                             }} cursor={'pointer'} border={'0.1px solid #ece5e5 !important'}><Text>
@@ -432,7 +433,7 @@ const Timer = () => {
                                                     showData?.map((ok) => {
                                                         // console.log(ok.time, ok.day, ok.taskName)
 
-                                                        return ok.time != time ? '' : ok.day != day ? "" : <Badge variant='solid' bg='rgb(44, 19, 56)' color="white" p={"5px 10px"} borderRadius="5px" >{ok.taskName}</Badge>
+                                                        return ok.time != time ? '' : ok.day != day[1] ? "" : <Badge variant='solid' bg='rgb(44, 19, 56)' color="white" p={"5px 10px"} borderRadius="5px" >{ok.taskName}</Badge>
                                                     })
                                                 }
 
