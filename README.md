@@ -22,6 +22,8 @@ Toggl Track is a time tracking app that allows you to track your daily activitie
 - React
 - Redux
 - Chakra UI
+- Firebase
+- Formic
 
 ## Tech-Stack for Back-End 💻
 - Node.js
