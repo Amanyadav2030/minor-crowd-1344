@@ -42,7 +42,7 @@ const RightFeature = () => {
             <Text color={'#2c1338'} fontSize={'2.8rem'} fontWeight={'600'} w={'80%'} >
                 The right feature set for <Rotate word={'every'} Color={'#2c1338'} /> team
             </Text>
-            <HStack gap={['1rem','1rem','0.5rem']} overflow={'hidden'} overflowX={'scroll'}  w={['100%','100%',null]} mt={'3rem !important'} mb={'3.5rem !important'}>
+            <HStack gap={['1rem','1rem','0.5rem']} overflow={'hidden'} overflowX={'auto'}  w={['100%','100%',null]} mt={'3rem !important'} mb={'3.5rem !important'}>
                 {rightFeatures.map((el) => {
                     return <Button  p={['1.4rem 7rem','1.4rem 7rem','1.6rem 1.9rem']}  onClick={() => handleClick(el)}
                         style={match == el.button ? {
