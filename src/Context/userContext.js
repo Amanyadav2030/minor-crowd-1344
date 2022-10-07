@@ -103,8 +103,8 @@ export const UserContextProvider = ({ children }) => {
                 })
                 dispatch(loginApi({ email, password }))
                 setTimeout(() => {
-                    window.location.href="http://localhost:3001/timer";
-                    // window.location.href="https://toggl-time-tracking.vercel.app/timer"
+                    // window.location.href="http://localhost:3000/timer";
+                    window.location.href="https://toggl-time-tracking.vercel.app/timer"
                 }, 1000)
             })
             .catch((er) => {
