@@ -31,7 +31,7 @@ Toggl Track is a time tracking app that allows you to track your daily activitie
 
 ## Link
 
-https://toggl-launching.vercel.app/
+https://toggl-time-tracking.vercel.app/
 
 ## Team Members 👨‍👦‍👦
 - [Aman Yadav](https://github.com/Amanyadav2030)  
