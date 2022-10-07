@@ -410,7 +410,7 @@ const Timer = () => {
                             </ModalBody>
                             <ModalFooter>
                                 <Button colorScheme="pink" width={"100%"} onClick={handleSubmit}>
-                                    Create Project
+                                    Create Task
                                 </Button>
                             </ModalFooter>
                         </ModalContent>
