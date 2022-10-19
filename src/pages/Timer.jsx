@@ -285,7 +285,7 @@ const Timer = () => {
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" ><rect width="24" height="24" fill="#95899B" rx="12"></rect><path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M5 11H19V13H5V11Z"></path><path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M13 5L13 19H11L11 5H13Z"></path></svg>
                     </VStack>
                 </HStack>
-                <VStack position={'sticky'} mt={'0rem !important'} top={'5.3rem'} pt={'1.5rem'} pb={'1.5rem'} fontSize={'0.8rem'} pr={'2rem'} justify={'space-between'} bg={'#fef9f7'} w={'100%'}>
+                <VStack position={'sticky'} mt={'0rem !important'} top={'5.3rem'} pt={'1.5rem'} pl={'0.5rem'} pb={'1.5rem'} fontSize={'0.8rem'} pr={'2rem'} justify={'space-between'} bg={'#fef9f7'} w={'100%'}>
                     <HStack w={'100%'} className={'showWeek'} justify={'space-between'}>
                         <Text fontWeight={'bold'} >THIS WEEK</Text>
                         <HStack gap='0.8rem' pl="1rem !important">
