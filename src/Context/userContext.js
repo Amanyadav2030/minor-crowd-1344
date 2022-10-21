@@ -101,7 +101,10 @@ export const UserContextProvider = ({ children }) => {
                     isClosable: true,
                     position: 'top'
                 })
-                dispatch(loginApi({ email, password }))
+                  process.nextTick(()=>{
+        dispatch(loginApi({ email, password }))
+    })
+               
                 setTimeout(() => {
                     // window.location.href="http://localhost:3000/timer";
                     window.location.href="https://toggl-time-tracking.vercel.app/timer"
