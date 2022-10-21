@@ -26,7 +26,10 @@ export const authReducer = (state = initialState, { type, payload }) => {
 
         case AUTH_LOGIN_SUCCESS: {
             // window.alert("saved",payload)
-            localStorage.setItem("token", payload)
+              process.nextTick(()=>{
+                    localStorage.setItem("token", payload)
+              })
+
             console.log(payload, "Success");
             return {
                 ...state,
