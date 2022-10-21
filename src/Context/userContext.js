@@ -105,7 +105,7 @@ export const UserContextProvider = ({ children }) => {
                 setTimeout(() => {
                     // window.location.href="http://localhost:3000/timer";
                     window.location.href="https://toggl-time-tracking.vercel.app/timer"
-                }, 1000)
+                }, 3000)
             })
             .catch((er) => {
                 
