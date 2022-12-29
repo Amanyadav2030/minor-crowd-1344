@@ -6,10 +6,11 @@ let token = localStorage.getItem("token") || "";
  
 export const getTaskAPI = () => async (dispatch) => { 
     dispatch({ type: GET_TASK_LOADING });
+    console.log(process.env.REACT_APP_API_KEY,'api our backend')
     try {
-        const res = await axios.get(`https://team-toggl.herokuapp.com/tasks`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_KEY}/task`, {
             headers: {
-                token: token 
+                authorization: token 
             }
         })
         dispatch({ type: GET_TASK_SUCCESS, payload: res.data })
@@ -25,9 +26,9 @@ export const postTaskAPI = (data) => async (dispatch) => {
 
     dispatch({ type: ADD_TASK_LOADING });
     try {
-        const res = await axios.post(`https://team-toggl.herokuapp.com/tasks`, data, {
+        const res = await axios.post(`${process.env.REACT_APP_API_KEY}/task`, data, {
             headers: {
-                token: token,
+                authorization: token,
             }   
         })
         dispatch(getTaskAPI())
@@ -38,25 +39,5 @@ export const postTaskAPI = (data) => async (dispatch) => {
         console.log(er)
     }
 }
-
-
-export const removetaskAPI = (id) => async (dispatch) => {
-    dispatch({ type: DELETE_TASK_LOADING });
-    try {
-        let res = await axios.delete(`https://team-toggl.herokuapp.com/tasks/${id}`, {
-            headers: {
-                token: token
-            }
-        });
-        dispatch(getTaskAPI())
-        dispatch({ type: DELETE_TASK_SUCCESS, payload: res.data });
-        return res.data
-    } catch (e) {
-        dispatch({ type: DELETE_TASK_ERROR })
-    }
-}
-
-
-
 
 

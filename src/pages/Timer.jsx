@@ -21,7 +21,7 @@ import { BsCurrencyDollar, BsFillCaretDownFill, BsFillCaretUpFill } from 'react-
 import { BiChevronRight, BiChevronLeft, BiChevronsLeft } from "react-icons/bi";
 import Sidebar from '../components/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTaskAPI, postTaskAPI, removetaskAPI } from '../store/task/Task.action';
+import { getTaskAPI, postTaskAPI } from '../store/task/Task.action';
 import { AiOutlineConsoleSql } from 'react-icons/ai';
 
 const start = new Date();
@@ -98,9 +98,9 @@ const Timer = () => {
     const dispatch = useDispatch();
     // console.log(taskData)
 
-    const handleDelete = (id) => {
-        dispatch(removetaskAPI(id))
-    }
+    // const handleDelete = (id) => {
+    //     dispatch(removetaskAPI(id))
+    // }
 
     useEffect(() => {
         dispatch(getTaskAPI())

@@ -1,20 +1,15 @@
-const mongoose = require("mongoose");
-
-const projectSchema = new mongoose.Schema({
+const mongoose = require('mongoose'); 
+const projectSchema = mongoose.Schema({
+    userId:{ type: mongoose.Schema.Types.ObjectId, ref: 'user',required:true },
     projectName: { type: String, required: true, unique: true },
     client: { type: String },
     private: { type: Boolean, required: false },
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'tguser' }
-},
-    {
+},{
         versionKey: false,
         timestamps: {
             createdAt: 'created_at',
             updatedAt: 'updated_at'
         }
-    }
-)
-
-const Project = mongoose.model("tgproject", projectSchema);
-
-module.exports = Project;
+    })
+const ProjectModel = mongoose.model('project',projectSchema);
+module.exports = ProjectModel;

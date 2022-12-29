@@ -1,28 +1,17 @@
-const express = require("express")
-const dbConnect = require("./config/database")
-const cors = require("cors")
-const userRouter = require("./Features/User/User.router")
-require('dotenv').config()
-const projectRouter = require("./Features/Projects/Project.router")
-const taskRouter = require("./Features/Task/Task.router")
-const PORT = process.env.PORT || 8080
+const express = require('express')
+const cors = require('cors')
+const dbConnect = require('./config/db')
+const {ProjectRouter,UserRouter,TaskRouter} = require('./routes/index.js');
 const app = express()
-app.use(express.json());
-app.use(cors())
-app.use("/users", userRouter)
-app.use("/projects", projectRouter)
-app.use("/tasks", taskRouter)
+require('dotenv').config();
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+app.use(cors());
+app.use('/project',ProjectRouter);
+app.use('/user',UserRouter);
+app.use('/task',TaskRouter);
+app.get('/', (req, res) => res.send('hello'))
 
-app.get("/", (req, res) => {
-    res.send("Welcome to toggl.com")
+dbConnect().then(()=>{  
+    app.listen(8080, () => {console.log('server started on port 8080')})
 })
-
-app.listen(PORT, async () => {
-    try {
-        await dbConnect()
-        console.log(`server is running on port ${PORT}`)
-    } catch (er) {
-        console.log(er)
-    }
-})
-

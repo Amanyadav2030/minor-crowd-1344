@@ -9,9 +9,9 @@ export const getProjectAPI = () => async (dispatch) => {
 
   dispatch({ type: GET_PROJECT_LOADING });
   try {
-    const res = await axios.get(`https://team-toggl.herokuapp.com/projects`, {
+    const res = await axios.get(`${process.env.REACT_APP_API_KEY}/project`, {
       headers: {
-        token: token
+        authorization: token
       }
     })
     dispatch({ type: GET_PROJECT_SUCCESS, payload: res.data })
@@ -28,9 +28,10 @@ export const postProjectAPI = (data) => async (dispatch) => {
 
   dispatch({ type: ADD_PROJECT_LOADING});
   try {
-    const res = await axios.post(`https://team-toggl.herokuapp.com/projects`, data, {
+    const res = await axios.post(`${process.env.REACT_APP_API_KEY}/project`, data, {
       headers: {
-        token: token
+        authorization: token
+
       }
     })
 
@@ -47,9 +48,9 @@ export const postProjectAPI = (data) => async (dispatch) => {
 export const removeProjectAPI = (id) => async (dispatch) => {
   dispatch({ type: REMOVE_PROJECT_LOADING });
   try {
-    let res = await axios.delete(`https://team-toggl.herokuapp.com/projects/${id}`, {
+    let res = await axios.delete(`${process.env.REACT_APP_API_KEY}/project/${id}`, {
       headers: {
-        token: token
+        authorization: token
       }
     });
     dispatch(getProjectAPI())

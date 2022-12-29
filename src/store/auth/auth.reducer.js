@@ -27,10 +27,9 @@ export const authReducer = (state = initialState, { type, payload }) => {
         case AUTH_LOGIN_SUCCESS: {
             // window.alert("saved",payload)
              
-                    localStorage.setItem("token", payload)             
+                localStorage.setItem("token", payload)             
                 setTimeout(() => {
-                    // window.location.href="http://localhost:3000/timer";
-                    window.location.href="https://toggl-time-tracking.vercel.app/timer"
+                    window.location.href="http://localhost:3000/timer";
                 }, 1000)
 
             console.log(payload, "Success");
