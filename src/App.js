@@ -1,9 +1,4 @@
 import "./App.css";
-
-import "./App.css";
-
-
-import "./App.css";
 import AllRoutes from "./Router/AllRoutes";
 function App() {
   return (
