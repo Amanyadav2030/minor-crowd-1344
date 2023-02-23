@@ -29,7 +29,7 @@ export const authReducer = (state = initialState, { type, payload }) => {
              
                 localStorage.setItem("token", payload)             
                 setTimeout(() => {
-                    window.location.href="http://localhost:3000/timer";
+                    window.location.href="https://toggl-time-tracking.vercel.app/timer";
                 }, 1000)
 
             console.log(payload, "Success");
